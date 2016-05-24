@@ -31,7 +31,7 @@ public class DoublyLinkedListTest {
 	public void testGet() {
 		assertEquals("check first element", "A", testList.get(0));
 		// assertEquals("check empty list", null, emptyList.get(0));
-		// check git update correctly
+		// check git update correctly +++
 	}
 
 	@Test
