@@ -15,6 +15,14 @@ public class DoublyLinkedList<E> extends AbstractList<E> {
 		tail.setNext(head);
 	}
 
+	public Node<E> getHead() {
+		return head;
+	}
+
+	public Node<E> getTail() {
+		return tail;
+	}
+
 	@Override
 	public E get(int index) {
 		// TODO Auto-generated method stub
