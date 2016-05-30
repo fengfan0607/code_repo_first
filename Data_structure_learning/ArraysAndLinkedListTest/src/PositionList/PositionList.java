@@ -1,5 +1,7 @@
 package PositionList;
 
+import java.util.Iterator;
+
 public interface PositionList<E> {
 	int size();
 
@@ -24,4 +26,6 @@ public interface PositionList<E> {
 	E set(Position<E> p, E e) throws IllegalArgumentException;
 
 	E remove(Position<E> p) throws IllegalArgumentException;
+
+	Iterator<E> iterator();
 }

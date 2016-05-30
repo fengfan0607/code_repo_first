@@ -1,5 +1,9 @@
 package PositionList;
 
+import java.util.Iterator;
+
+import org.omg.CORBA.Current;
+
 import DoublyLinkedList.Node;
 
 public class DoublyLinkedPositionList<E> implements PositionList<E> {
@@ -150,6 +154,66 @@ public class DoublyLinkedPositionList<E> implements PositionList<E> {
 			currentNode = currentNode.getNext();
 		}
 		return s;
+	}
+
+	public Iterator<E> iterator() {
+		return new ElementIterator();
+	}
+
+	private class ElementIterator implements Iterator<E> {
+		Iterator<Position<E>> positionIterator = new positionIterator();
+
+		@Override
+		public boolean hasNext() {
+			// TODO Auto-generated method stub
+			return positionIterator.hasNext();
+		}
+
+		@Override
+		public E next() {
+			// TODO Auto-generated method stub
+			return positionIterator.next().getElement();
+		}
+
+	}
+
+	private class positionIterator implements Iterator<Position<E>> {
+
+		Position<E> cursor = first();
+		Position<E> Current = null;
+
+		@Override
+		public boolean hasNext() {
+			// TODO Auto-generated method stub
+			return cursor != null;
+		}
+
+		@Override
+		public Position<E> next() {
+			// TODO Auto-generated method stub
+			if (cursor == null) {
+				throw new IllegalAccessError("no element left");
+			} else {
+				Current = cursor;
+				cursor = after(cursor);
+			}
+			return Current;
+		}
+
+	}
+
+	private class PositionIterable implements Iterable<Position<E>> {
+
+		@Override
+		public Iterator<Position<E>> iterator() {
+			// TODO Auto-generated method stub
+			return new positionIterator();
+		}
+
+		public Iterable<Position<E>> positions() {
+			return new PositionIterable();
+		}
+
 	}
 
 }

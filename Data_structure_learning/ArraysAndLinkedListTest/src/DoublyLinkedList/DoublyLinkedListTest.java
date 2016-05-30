@@ -2,14 +2,21 @@ package DoublyLinkedList;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
+
+import PositionList.Position;
+import PositionList.PositionList;
 
 public class DoublyLinkedListTest {
 	DoublyLinkedList<String> testList;
 	DoublyLinkedList<String> emptyList;
 	insertionSortofDoublyLinkedList insertSort;
 	DoublyLinkedList<Integer> intList;
+	List<Integer> List = new ArrayList<>();
 
 	@Before
 	public void setUp() {

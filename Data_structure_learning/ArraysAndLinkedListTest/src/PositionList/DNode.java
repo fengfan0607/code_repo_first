@@ -16,7 +16,7 @@ public class DNode<E> implements Position<E> {
 	@Override
 	public E getElement() throws IllegalStateException {
 		// TODO Auto-generated method stub
-		if (next == null && prev == null) {
+		if (next == null) {
 			throw new IllegalArgumentException("node does not exist in the list");
 		}
 		return data;
